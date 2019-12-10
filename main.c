@@ -1,25 +1,19 @@
 #include <stdio.h>
-#include <string.h>
+#include <stdlib.h>
+int combination(int n, int k)
+{
+  if (k==0 || k==n)
+    return 1;
+
+  return  combination(n-1, k-1) + combination(n-1, k);
+}
+
 int main()
 {
-   char s[1000], r[1000];
-   int begin, end, count = 0;
-   gets(s);
-
-   while (s[count] != '\0')
-      count++;
-
-   end = count - 1;
-
-   for (begin = 0; begin < count; begin++) {
-      r[begin] = s[end];
-      end--;
-   }
-
-   r[begin] = '\0';
-
-   printf("%s\n", r);
-
-   return 0;
+    int n , k ;
+    scanf("%d",&n);
+    scanf("%d",&k);
+    printf("Value of C(%d, %d) is %d ", n, k, combination(n, k));
+    return 0;
 }
 
